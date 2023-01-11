@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="ref_caut_mon.css">
+    <script src="https://code.jquery.com/jquery-3.6.2.js"></script>
+    <script src="ajax.js"></script>
+</head>
+
+<body style="overflow: auto;"><br>
+    <div style="position: relative; left: 50px;">
+        <div style="border-left:6px solid black;height:1210px;position:relative;left:480px;float:left;"></div>
+        <form name="searching" id="form1" method="post" action="">
+            <h3>
+                <u>Search:</u><br>
+            </h3>
+            <select name="c" class="form-control" style="width: 300px;">
+                <option>Enrollment No.</option>
+                <option>Application ID</option>
+                <option>Student`s Name</option>
+                <option>Father`s Name</option>
+                <option>Mother`s Name</option>
+                <option>Postal Address</option>
+                <option>Email</option>
+                <option>Pincode</option>
+                <option>Mobile No.</option>
+                <option>Alternate No.</option>
+                <option>Course Enrolled</option>
+                <option>Roll No.</option>
+                <option>Receipt No.</option>
+                <option>Date of Receipt</option>
+                <option>Amount</option>
+                <option>Process</option>
+                <option>Date of Submission</option>
+                <option>Time of Submission</option>
+            </select><br>
+            <input type="text" placeholder="Data" name="d" class="form-control"  style="width: 300px;">
+            <br>
+            <button type="submit" class="btn btn-primary btn-lg" style="position: relative; left: 200px;width: 100px; height: 50px;">Search</button><br>
+        </form>
+        <form name="filter" id="form2" method="post" action="">
+            <h3>
+                <u>Filter:</u><br>
+            </h3>
+            <h5>
+                Course:<br>
+            </h5>
+            <div>
+                Filter via Course?: <br>Yes: <input class="form-check-input" type="radio" id="coursequeyes" name="que" value="Yes" required>&nbsp;&nbsp;
+                No: <input class="form-check-input" type="radio" id="coursequeno" value="No" name="que" value="No" required checked>
+            </div>
+            <br>
+            <div id="course" class="col-md-4"></div>
+            <h5>Date of Submission: </h5>
+            From:<input type="date" name="FromDate" placeholder="From" class="form-control" style="width: 200px; position: relative; bottom: 27px; left: 50px;"><br>
+            
+            To:<input type="date" name="ToDate" placeholder="To" class="form-control" style="width: 200px; position: relative; bottom: 27px; left: 50px;">
+            
+            <h5>
+                Process:
+            </h5>
+            <input type="radio" name="Process" value="Yes"  class="form-check-input">
+            &nbsp;Processed 
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="Process" value="No" class="form-check-input">&nbsp;Unprocessed<br><br>
+            <input type="submit" value="Filter" class="btn btn-primary btn-lg" style="position: relative; left: 130px;width: 100px; height: 50px;"><br>
+           
+        </form>
+
+        <input type="button" onclick="window.location.reload();" value="Reset" class="btn btn-primary btn-lg" style="position: relative; left: 300px;width: 100px; height: 50px; bottom: 50px;">
+
+        <div style="position: relative;float:right; right: 400px; bottom:670px;width:400px;">
+            <h3><u>Filter:</u></h3>
+            <form id="form4" method="post" action="">
+                Library dues:
+                <select name="libdues" class="form-control">
+                    <option>Don`t Filter</option>
+                    <option>NA</option>
+                    <option>No</option>
+                    <option>Yes</option>
+                </select>
+                <br>
+                Fees dues:
+                <select name="accdues" class="form-control">
+                    <option>Don`t Filter</option>
+                    <option>NA</option>
+                    <option>No</option>
+                    <option>Yes</option>
+                </select>
+                <br>
+                <input type="submit" value="Filter" class="btn btn-primary btn-lg" style="width:100px;height:50px;">
+            </form>
+        </div>
+        <br>
+        <div style="position: relative;float:right;right: 100px; bottom: 400px; width:300px;">
+            <h3><u>Filter Download:</u></h3>
+            <form id="form5" method="post" action="filterduesdownload.php" name="filterduesdownload">
+                Library dues:
+                <select name="libdues" class="form-control">
+                    <option>Don`t Filter</option>
+                    <option>NA</option>
+                    <option>No</option>
+                    <option>Yes</option>
+                </select>
+                <br>
+                Fees dues: 
+                <select name="accdues" class="form-control">
+                    <option>Don`t Filter</option>
+                    <option>NA</option>
+                    <option>No</option>
+                    <option>Yes</option>
+                </select>
+                <br>
+                <input type="submit" value="Filter Download" class="btn btn-primary btn-lg">
+            </form>
+        </div>
+
+
+        <form name="filterDownload" id="form3" method="post" action="f_download.php">
+            <h3>
+                <u>Filter download:</u><br>
+            </h3>
+            <h5>
+                Course:<br>
+            </h5>
+            <div>
+                Filter via Course?: <br>Yes: <input class="form-check-input" type="radio" id="coursequeyes_d" name="que_d" value="Yes" required>&nbsp;&nbsp;
+                No: <input class="form-check-input" type="radio" id="coursequeno_d" value="No" name="que_d" value="No" required checked>
+            </div>
+            <br>
+            <div id="course_d" class="col-md-4"></div>
+            <h5>Date of Submission: </h5>
+            From:<input type="date" name="FromDate" placeholder="From" class="form-control" style="width: 200px; position: relative; bottom: 27px; left: 50px;"><br>
+            
+            To:<input type="date" name="ToDate" placeholder="To" class="form-control" style="width: 200px; position: relative; bottom: 27px; left: 50px;">
+            
+            <h5>
+                Process:
+            </h5>
+            <input type="radio" name="Process" value="Yes"  class="form-check-input">
+            &nbsp;Processed 
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="Process" value="No" class="form-check-input">&nbsp;Unprocessed<br><br>
+            <input type="submit" value="Filter Download" class="btn btn-primary btn-lg" style="position: relative; left: 130px"><br>
+           
+        </form>
+       
+    </div>
+    <div class="container py-5">
+        <div class="d-flex justify-content-between align-items-center flex-wrap mb-5">
+          <h1 class="mb-0 fw-bold">Students` List</h1>
+          <a href="export.php" class="btn btn-primary">Export to Excel</a>
+          
+          <a href="refund_of_caution_money.html" class="btn btn-primary">Application for Refund of Caution Money</a>
+        </div>
+    </div>
+</body>
+<script>
+    var c=document.getElementById("course");
+    var yes=document.getElementById("coursequeyes");
+    var no=document.getElementById("coursequeno");
+    no.addEventListener('click',()=>
+    {
+        c.innerHTML="";
+    });
+    yes.addEventListener('click',()=>
+    {
+        c.innerHTML="<select name='enrolled' class='form-control'><option>MCA(6 Years/5 Years)</option><option>Mtech(IT)(5 Years/5.5 Years)</option><option>B.com(Hons.)</option><option>MBA(MS)(5 Years)</option><option>MBA(Toursim)(5 Years)</option><option>MBA(Toursim)(2 Years)</option><option>MBA(MS)(2 Years)</option><option>MBA(APR)</option><option>MBA(Ent)</option></select><br>";
+    });
+
+    var c_d=document.getElementById("course_d");
+    var yes_d=document.getElementById("coursequeyes_d");
+    var no_d=document.getElementById("coursequeno_d");
+    no_d.addEventListener('click',()=>
+    {
+        c_d.innerHTML="";
+    });
+    yes_d.addEventListener('click',()=>
+    {
+        c_d.innerHTML="<select name='enrolled' class='form-control'><option>MCA(6 Years/5 Years)</option><option>Mtech(IT)(5 Years/5.5 Years)</option><option>B.com(Hons.)</option><option>MBA(MS)(5 Years)</option><option>MBA(Toursim)(5 Years)</option><option>MBA(Toursim)(2 Years)</option><option>MBA(MS)(2 Years)</option><option>MBA(APR)</option><option>MBA(Ent)</option></select><br>";
+    });
+</script>
+</html>

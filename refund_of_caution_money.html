@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="ref_caut_mon.css">
+    <style>
+        a:link, a:visited, a:hover, a:active{
+            color: white;
+            text-decoration: none;
+        }
+        form{
+            position: relative;
+        }
+        .exp1{
+            padding: 10px;
+        }
+        #cp1
+        {
+            resize: none;
+        }
+        #cp2
+        {
+            top: -110px;
+            left:15px;
+        }
+        .exp1:focus+ #cp2
+        {
+            top: -132px;
+        }
+        .exp1:not(:placeholder-shown) + #cp2
+        {
+            top: -132px;
+        }
+        .place_holder{
+            color: rgb(128, 124, 118);
+            position: relative;
+            top: -35px;
+            left:15px;
+            transition: 0.3s;
+            pointer-events: none;
+        }
+        .exp1:focus + .place_holder{
+            color: black;
+            top: -60px;
+            padding-left: 2px;
+            padding-right: 2px;
+            border-radius: 3px;
+            background-color: rgb(255, 255, 255);
+            border: 1px;
+        }
+        .exp1:not(:placeholder-shown) + .place_holder{
+            color: black;
+            top: -60px;
+            padding-left: 2px;
+            padding-right: 2px;
+            border-radius: 3px;
+            background-color: rgb(255, 255, 255);
+            border: 1px;
+        }
+
+        .q1{
+            position: relative;
+            margin-right: 20px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.2.js"></script>
+    <script src="captcha.js"></script>
+</head>
+<body>
+    <div class="container" style="border-radius: 20px; box-shadow: 5px 5px 10px 10px rgb(69, 69, 69)">
+        <!----------------------------------DIV------------------------------------------------------>
+        <div class="row">
+            <!---------------------------------FORM-------------------------------------------------->
+            <div class="col-md-3"><br>
+                <button style="background-color: #0a2351; position: relative; top: 5%;height: 60px; width: 306px;"id="stat_check"><a href="form_status.html">Status Checker For Refund Money</a></button>
+            </div>
+            <div class="col-md-9">
+                <br>
+                <h3 class="text-center">Application for Refund of Caution Money</h3>
+                <hr>
+
+            <div class="col-xs-4 col-md-4" style="float: left;">
+            
+            </div>
+            <div class="col-xs-6 col-md-6"  style="float: right;">
+            
+
+                <form id="refund" enctype="multipart/form-data" method="post" action="insertion.php" name="f1" class="form"> 
+                    
+                    <div><input  type="text" name="name" placeholder=" "  maxlength="30" class=" form-control exp1" required> <label id="e1" class="place_holder">Name</label></div>
+                
+                    <div><input  type="text" name="father"  placeholder=" " maxlength="30" class=" form-control exp1" required> <label class="place_holder">Father's Name</label></div>
+                    
+                    <div><input  type="text" name="mother" placeholder=" " maxlength="30" class=" form-control exp1" required> <label class="place_holder">Mother's Name</label></div>
+                    <div><input  type="email" name="email" placeholder=" " maxlength="40" class=" form-control exp1" required> <label class="place_holder">Email ID</label></div>
+                    
+                    <div><input  type="number" name="mobile" placeholder=" " maxlength="11" minlength="10"  class=" form-control exp1" required> <label class="place_holder">Phone No.</label></div>
+
+                    <div><input  type="number" name="alt" placeholder=" " maxlength="11" minlength="10" class=" form-control exp1" required> <label class="place_holder">Alternate No.</label></div>
+                    
+                    <div><textarea rows="4" name="permanent" placeholder=" " maxlength="100" class=" form-control exp1" id="cp1" required></textarea><label id="cp2" class="place_holder">Postal Address</label></div>
+
+                    <div><input placeholder=" " type="number" name="pin" maxlength="6" class=" form-control exp1" required> <label for="" class="place_holder">PIN</label></div>
+                    
+                    <div>
+                        Course Enrolled:
+                        <select name="program" id="program" class=" form-control exp1" required>
+                            <option>MCA(6 Years/5 Years)</option>
+                            <option>Mtech(IT)(5 Years/5.5 Years)</option>
+                            <option>B.com(Hons.)</option>
+                            <option>MBA(MS)(5 Years)</option>
+                            <option>MBA(Toursim)(5 Years)</option>
+                            <option>MBA(Toursim)(2 Years)</option>
+                            <option>MBA(MS)(2 Years)</option>
+                            <option>MBA(APR)</option>
+                            <option>MBA(Ent)</option>
+                        </select>
+                    </div><br>
+                    
+                    <div><input placeholder=" "  type="text" name="roll" maxlength="12" class=" form-control exp1" required><label class="place_holder">Class Roll No: XX-2kXX-XXX</label></div>
+                    
+                    <div><input placeholder=" "  type="text" name="enroll" maxlength="10" class=" form-control exp1"required> <label class="place_holder">Enrollment No.</label></div>
+                    
+                    <div><div>Do you have a SBI Account?</div>
+                    <div>
+                        YES:<input value="Yes" class="form-check-input" id="sbi1" name="sbi" type="radio">&nbsp;&nbsp; No:<input value="No" class="form-check-input" name="sbi" id="sbi2" type="radio">
+                    </div>
+                    </div>
+                    <div id="Pop_up"><br>
+                        <div>SBI Bank Account Details</div><br>
+
+
+                        <input id="i1" placeholder=" "  type="text" name="acc_no" class=" form-control exp1" > <label class="place_holder">Account No</label>
+
+
+                        <input id="i2" placeholder=" " type="text" class=" form-control exp1" name="ifsc" ><label class="place_holder">IFSC code</label><br>
+
+
+                        <div>Upload Bank Pass book photo</div>
+
+
+                        <input id="i3" type="file" class=" form-control exp1" name="passBook" required>
+
+
+                    </div><br>
+                    <div>Fees Deposited at Time of Admission(First Semester): <br><br>
+
+                        <ol style="list-style: none;">
+                            <li>
+                                <input placeholder=" "  type="text" name="receipt"  maxlength="20" class=" form-control exp1" required> <label class="place_holder">Receipt No.</label>
+                            </li>
+                            <li>Date: 
+                                <input type="date" name="date" class=" form-control exp1" required> <label class="place_holder"></label>
+                            </li>
+                            <li>
+                                <input placeholder=" " type="number" name="amount" maxlength="11" class=" form-control exp1" required> <label class="place_holder">Amount</label>
+                            </li>
+                        </ol>
+                    </div>
+                    <div>
+                        Do you have First Semester Receipt?:<br>
+                        Yes: <input type="radio" class="form-check-input" name="radfile" id="yess">&nbsp;&nbsp;
+                        No: <input type="radio" class="form-check-input" name="radfile" id="noo">
+                    </div><br>
+                    <div id="file"></div>
+                    <input type="file" name="fileToUpload" class=" form-control exp1" required><br>
+                    Captcha: <div id="custom_captcha" ></div>
+                    <input type="submit" value="Submit" name="enter" class="btn btn-primary btn-lg" style="position: relative; left: 130px;">
+                </form>
+            </div>
+        </div>
+        <!--------------------------------FORM END---------------------------------------------->
+    </div>
+    <!-------------------------------------DIV END-------------------------------------------------->
+</div>
+<!--made by: Soham Kothari, Tanishq Mehrunkar, Kartikeya Yadav, Mohd. Zakie Khan :D-->
+<script>
+    var x=document.getElementById("Pop_up");
+    x.style.display="none"; 
+    var op1=document.getElementById("i1");
+    var op2=document.getElementById("i2");
+    var op3=document.getElementById("i3");
+
+        op1.removeAttribute('required');
+        op2.removeAttribute('required');
+        op3.removeAttribute('required');
+    document.getElementById("sbi1").addEventListener('click',()=>{
+        x.style.display="block";
+        op1.setAttribute('required');
+        op2.setAttribute('required');
+        op3.setAttribute('required');
+    });
+    document.getElementById("sbi2").addEventListener('click',()=>{  
+        x.style.display="none";   
+        op1.removeAttribute('required');
+        op2.removeAttribute('required');
+        op3.removeAttribute('required');
+    });
+    var f=document.getElementById("file");
+    document.getElementById("yess").addEventListener('click',()=>
+    {
+        f.innerHTML="Upload First Semester Fees Receipt";
+    });
+    document.getElementById("noo").addEventListener('click',()=>
+    {
+        f.innerHTML="Upload Affidavit";
+    });
+</script>
+</body>
+</html>
